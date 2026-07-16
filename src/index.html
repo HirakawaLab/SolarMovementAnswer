@@ -1,17 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="jp">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
-</head>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
-<body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
-</body>
+    <title>太陽の動き</title>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-body">
+        <select class="form-select" aria-label="Default select example" id="selectCity">
+          <option selected value="1">札幌</option>
+          <option value="2">東京</option>
+          <option value="3">大阪</option>
+          <option value="4">那覇</option>
+        </select>
+        <select class="form-select" aria-label="Default select example" id="selectDate">
+          <option selected value="1">春分</option>
+          <option value="2">夏至</option>
+          <option value="3">秋分</option>
+          <option value="4">冬至</option>
+          <option value="5">4月8日</option>
+          <option value="6">4月15日</option>
+          <option value="7">4月22日</option>
+          <option value="8">4月29日</option>
+          <option value="9">5月6日</option>
+          <option value="10">5月13日</option>
+          <option value="11">5月20日</option>
+          <option value="12">5月27日</option>
+          <option value="13">6月3日</option>
+        </select>
 
+        <select class="form-select" aria-label="Default select example" id="selectBuilding">
+          <option selected value="1">南向き</option>
+          <option value="2">南西向き</option>
+        </select>
+
+        <select class="form-select" aria-label="Default select example" id="selectHeight">
+          <option selected value="1">建物高さ10m</option>
+          <option value="2">建物高さ20m</option>
+        </select>
+        
+        <p id="myDate"></p>
+        <form>
+          <div class="form-group">
+            <label for="rangeTime" >中央標準時</label>
+            <label for="rangeTime" id="labelHour">12 :</label>
+            <label for="rangeTime" id="labelMin">00</label>
+            <input type="range" class="form-control-range" min="0" max="23.916666667" step="0.083333334" value="12" id="rangeTime">
+          </div>
+        </form>
+        <div id="sunTime"></div>
+        <div id="lenShadow"></div>
+        <div id="solarAltitude"></div>
+        <div id="solarAzimuth"></div>
+        <svg width="800" height="800" id="solarSVG">
+        </svg>
+        <p>日射強度 W/m2</p>
+        <table class="table table-bordered" id="solarTable">
+          <thead>
+            <tr>
+              <th scope="col">法線面</th>
+              <th scope="col">水平面</th>
+              <th scope="col">N壁面</th>
+              <th scope="col">NE壁面</th>
+              <th scope="col">E壁面</th>
+              <th scope="col">SE壁面</th>
+              <th scope="col">S壁面</th>
+              <th scope="col">SW壁面</th>
+              <th scope="col">W壁面</th>
+              <th scope="col">NW壁面</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="../static/js/index.js?data=20210811235555" type="module" defer></script>
+  </body>
 </html>
